@@ -31,7 +31,11 @@
 - [Next steps: Looping](#next-steps-looping)
 
 ## Welcome to your first Node lab!
-This looks a little different than your assignments, huh? That's because labs are all about starting from scratch, and learning on your own (or with a partner). Assignments prepare you for plugging into the middle of a project,
+This looks a little different than your assignments, huh? That's because labs are all about starting from scratch, and learning on your own (or with a partner). Assignments prepare you for plugging into the middle of a project.
+
+To do a lab, you must "fork" the repo from Marcy directly. This will allow it to be public on your profile so you can get the public GitHub commits. To that end, we recommend committing and pushing up your code often. At least at every completed `# Step`.
+
+Your teacher will communicate with you about how to turn in your progress at the end of each day. Labs can be big! It's ok not to finish all in one sitting!
 
 ## Goals
 - Understand how to create your own NPM project
