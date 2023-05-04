@@ -49,16 +49,16 @@ By the way "CLI" stands for "Command Line Interface" and it's what we call progr
 Alright, let's start at the beginning by breaking down what the "ask" of today's project is!
 
 # The Ask
-Basically, projects can usually be boiled down to a sentence or two. It's like the elevator pitch. This is where you *start*, and the ask for this app today would be:
+Basically, projects can usually be boiled down to a sentence or two. It's like the elevator pitch. This is where you *start*, and the ask for this app would be:
 
 > We want a simple CLI app that greets the user, does something with them, then closes.
 
-As you can see it's super vague, but that's often how projects start. Sometimes they're literally just a question. It would be up to you and the project managers to distill exactly what features we want.
+As you can see it's super vague, but that's often how projects start. Sometimes they're literally just a question. It would be up to you and the project managers to tease out exactly what features will be.
 
 # Features
-With the pitch out of the way, a project manager would either work with you or tell you about the specific "user stories" they want. A user story is basically a sentence that explains what a user could or would do with the program. They should each be simple, and they combine to form more complex flows.
+With the pitch out of the way, a project manager would either work with you or tell you about the specific "user stories" they want. A user story is basically a sentence that explains what a user could do with the program. They should each be simple, they'll combine to form more complex flows.
 
-In this case, I'm the project manager and I set these stories:
+In this case, these are the stories:
 
 - A user can interact dynamically with the program
 - A user will be greeted by the program
@@ -71,11 +71,11 @@ In this case, I'm the project manager and I set these stories:
 - When exiting, the program will say goodbye to the user
 
 # Choosing the foundations, MVP, and stretch features
-With the stories, you then have to break them up by priority. What should you build first? There's basically 3 stages of project deliverables:
+Once you have the stories, you have to break them up by priority. What should you build first? There's basically 3 stages of a project:
 
-1. The foundations are technically done, but basically no features.
-2. This now has just enough features to be useful.
-3. I can add additional features one by one safely now!
+1. The foundations are technically done, but basically no features. (FOUNDATIONS)
+2. This now has just enough features to be useful. (MVP)
+3. I can add additional features one by one safely now! (STRETCH)
 
 What do you think those three things would be for us here? Keep in mind what your skill level is. If you're unfamiliar with a tech stack or process, dial back your deliverables. **It's always better to under promise and over deliver.**
 
@@ -113,7 +113,7 @@ Is that how you would've done it? We're splitting it up the foundations pretty c
 Now let's talk about another crucial step: research.
 
 # Research
-Ok so right off the bat, we know there's a big thing we've never worked with:
+Right off the bat, we know there's a big thing we've never worked with:
 
 > A user can interact dynamically with the program:
 
@@ -122,7 +122,7 @@ As well as some general uncertainty about all the random pieces
 > - A user can get a random piece of advice
 > - A user can get a random cheer
 
-When kicking off a project, always take some time to research the more difficult aspects of the project. This time upfront can show you where roadblocks will occur, and identifying and prioritizing un-blocking these bottle necks is the true trick to getting good at estimating projects.
+When kicking off a project, always take some time at the beginning to research the more difficult aspects of the project. This time upfront can show you where roadblocks will occur. Identifying and prioritizing un-blocking these bottle necks is the true trick to getting good at estimating projects.
 
 ## Some help
 Ok, but since this is a lab (and unbeknownst to you, JS has a heck of a time with synchronous user input), we're going to give you 2 big hints:
@@ -134,10 +134,10 @@ Ordinarily, after research and rough prototyping, we'd revisit our overall plan,
 **SO LET'S GET GOING!**
 
 # Step 1: Create a project
-Let's get things started right
+Let's get things started right:
 - use the npm command to initialize the project
 - make a `src` folder with an `index.js` inside
-  - Probably will also want a `playground.js` file but live your life
+  - Probably also want a `playground.js` file, but live your life
 - Add a start script that's uses `node` instead of `nodemon`
   - The interactive nature of `prompt-sync` doesn't seem to play nicely with `nodemon` unfortunately.
 - Finally, install the `prompt-sync` package as a dependency
@@ -160,10 +160,10 @@ console.log(typeof age)
 
 Read the docs but don't go crazy, look for only what you need to get started. Focus on things like functions, required arguments vs helpful arguments, and return data.
 
-Once you feel confident about your answer to the primary question, move on! You can learn more as you go later, let's keep moving. Always keep moving forward.
+Once you feel confident about your answer to the primary question, move on! You can learn more as you go later. Always keep moving forward.
 
 # Step 3: File setup
-For now let's keep it simple and use this mental framework:
+How do we structure a JS File? Lots of ways of course, but for now let's keep it simple and use this setup:
 
 ```js
 // imports at the top
@@ -187,7 +187,7 @@ const main = () => {
 main();
 ```
 
-Basically, imports always go first, then the smallest functions go on top, then the functions that reference them go after, and finally our `main()` function. In the file, the only file that actually gets *run* is `main()`. As our file grows, we can split things off into a `utils` or `lib` file, but this is fine for now.
+Basically, imports always go first, then the smallest functions go on top, then the functions that reference them go after, and finally our `main()` function. Be sure to call that at the end of the file. As our file grows, we can split things off into a `utils` or `lib` file, but this is fine for now.
 
 Alright so all we actually have to do now is `require` prompt sync (Don't forget the extra `()`, that's not normal, but it's easy!) and a `main()` function.
 
@@ -199,8 +199,9 @@ Throw a log or something into `main` and run the `npm` start command to make sur
 Alright our first function should do 3 things:
 
 - Log a generic welcome
-- get a user's name via `prompt`
-- return the user's name
+- Get a user's name via `prompt`
+- Greet the user with their name
+- Return the user's name
 
 ```js
 welcomeAndGetName();
@@ -211,9 +212,6 @@ What is your name: [input: Carms]
 Hello Carms, nice to meet you!
 ```
 We want to isolate our logic to a method, however since we have other functions who will want to read that name, we should return it.
-
-Let's put this into our main function, and as a short check, we can also log our new `name` variable to see that it works:
-
 
 ```js
 const main = () => {
@@ -232,11 +230,11 @@ Since we can't edit the `name` after get it, is this piece of state mutable or i
 > Keeping track of state is a really important part of our job. Poorly managed, mutable state is responsible for a lot of bugs.
 > <br />-- Mike
 
-## handling white space
-What if a user accidentally puts a space like " name" or "name ", that would goof up our printing. Check out [the docs for `trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim), it might be what we're looking for.
+## handling spaces
+What if a user accidentally puts a space like " name" or "name ", that would goof up our printing. Check out [the docs for `trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim), it might be helpful.
 
 # Step 5: List the options
-This one is straightforward technically, but let's talk about dealing with users. In general, we want to give them as little opportunity as possible to make a mistake. So we *could* have them pick options like this:
+This one is straightforward technically, but let's talk about dealing with users. In general, we want to give them as few opportunities as possible to make a mistake. So we *could* have them pick options like this:
 
 ```plaintext
 Here are your options:
@@ -246,7 +244,7 @@ cheer - cheer you on!
 quit - exit the program
 ```
 
-However, that's a *lot* of typing, and each keystroke is an opportunity for a mistake. Instead, what about single letters or numbers like this:
+However, that's a *lot* of typing, and each keystroke could be a mistake. Instead, what about single letters or numbers like this:
 
 ```plaintext
 Here are your options:
@@ -256,7 +254,7 @@ Here are your options:
 Any other key - exit
 ```
 
-So your next task is to create a function `showOptions()` that logs this information to the screen. Now, for the MVP, we're aren't doing all of the options. So it's up to you what you actually want this to output. All of them, or just add them as you go? It's up to you! This is your world.
+So your next task is to create a function `showOptions()` that *just* logs these options to the screen. Now, for the MVP, we're aren't doing all of the options. So it's up to you what the output should be. All of them, or just add them as you go? It's up to you! This is your world.
 
 # Step 6: sayGoodbye
 To close out our program we need a function like:
@@ -270,7 +268,7 @@ sayGoodbye(name);
 Now, you may be wondering why we'd bother with such a simple function. That's logging a template string under the hood (spoilers). I'll tell you why: DRY code.
 
 ## DRY - Don't Repeat Yourself
-Coders are a lazy bunch. Smart, but lazy. In general, if you can do something once and use it multiple times, that's real nice. So, it's true that we could just log a template with the name, however what if our app has multiple exits? No problem, just cut and copy the template log a few places.
+Coders are a lazy bunch. Smart, but lazy. In general, if you can write something once and use it multiple times, that's real nice. But there's also a valid reason to wrap this into a function. It's true that we could just log a template with the name, however what if our app has multiple exits? "No problem", you think, you could just cut and copy the template in a few places.
 
 But then we decide to edit the message. Uh oh. Now we have to go back to every copy (we might even have to use a global search to be sure) and edit the new text. That's annoying and error prone. **Manually cutting and copying too much can lead to inconsistent code**.
 
@@ -296,10 +294,10 @@ console.log('iguanna') // typo, no error
 console.log(iguanna) // error, unknown variable
 ```
 
-Now, not *everything* needs to be wrapped in a function or using a constant, but they're definitely tools for your toolbox to use when you see fit.
+Now, not *everything* needs to be wrapped in a function or a constant, but they're definitely tools for your toolbox to use when you see fit.
 
 # Pause: That's our foundations!
-Congrats! We set out a plan and executed it. The foundations seem like small output, but remember, we learned things and set the project up for success later. Foundations aren't ever shown off, but without a strong one, the Empire State Building would just be a pretty picture on a blueprint.
+Congrats! We set out a plan and executed it. The foundations seem like small output, but remember, we also covered our research and set the project up for success later. Foundations aren't ever shown off, but without a strong one, the Empire State Building would just be a pretty picture on a blueprint.
 
 Good job, now let's press on to our MVP!
 
