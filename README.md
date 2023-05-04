@@ -2,6 +2,7 @@
 - [1.0.3 Lab: Project Planning with a CLI App](#103-lab-project-planning-with-a-cli-app)
   - [Welcome to your first JS lab!](#welcome-to-your-first-js-lab)
   - [Goals](#goals)
+  - [CLI vs GUI](#cli-vs-gui)
 - [The Ask](#the-ask)
 - [Features](#features)
 - [Choosing the foundations, MVP, and stretch features](#choosing-the-foundations-mvp-and-stretch-features)
@@ -37,6 +38,11 @@ This looks a little different than your assignments, huh? That's because labs ar
 - Understand the basics of project management
 - Use an NPM package as a dependency
 - Build a CLI App that takes user input
+
+## CLI vs GUI
+By the way "CLI" stands for "Command Line Interface" and it's what we call programs that don't have a "GUI" (Graphical User Interface). It means the only way to interact with our program is via the terminal with text. It's not as old school as you think, you'll use a *lot* of CLI apps in your career. Sometimes, they're just faster to use than clicking around a GUI.
+
+Alright, let's start at the beginning by breaking down what the "ask" of today's project is!
 
 # The Ask
 Basically, projects can usually be boiled down to a sentence or two. It's like the elevator pitch. This is where you *start*, and the ask for this app today would be:
