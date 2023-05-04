@@ -1,6 +1,6 @@
 # 1.0.3 Lab: Project Planning with a CLI App
 - [1.0.3 Lab: Project Planning with a CLI App](#103-lab-project-planning-with-a-cli-app)
-  - [Welcome to your first JS lab!](#welcome-to-your-first-js-lab)
+  - [Welcome to your first Node lab!](#welcome-to-your-first-node-lab)
   - [Goals](#goals)
   - [CLI vs GUI](#cli-vs-gui)
 - [The Ask](#the-ask)
@@ -30,7 +30,7 @@
   - [File Structure](#file-structure)
 - [Next steps: Looping](#next-steps-looping)
 
-## Welcome to your first JS lab!
+## Welcome to your first Node lab!
 This looks a little different than your assignments, huh? That's because labs are all about starting from scratch, and learning on your own (or with a partner). Assignments prepare you for plugging into the middle of a project,
 
 ## Goals
@@ -125,7 +125,7 @@ Ok, but since this is a lab (and unbeknownst to you, JS has a heck of a time wit
 - We'll use `prompt-sync` to get keyboard inputs from the user
 - We'll give you some starter functions for getting words of wisdom and cheers
 
-Ordinarily, after research and rough prototyping, we'd revist our overall plan, but we're going to be fine for this project.
+Ordinarily, after research and rough prototyping, we'd revisit our overall plan, but we're going to be fine for this project.
 
 **SO LET'S GET GOING!**
 
