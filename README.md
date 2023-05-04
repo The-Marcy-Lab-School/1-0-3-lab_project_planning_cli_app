@@ -296,10 +296,10 @@ console.log(iguanna) // error, unknown variable
 
 Now, not *everything* needs to be wrapped in a function or a constant, but they're definitely tools for your toolbox to use when you see fit.
 
-# Pause: That's our foundations!
-Congrats! We set out a plan and executed it. The foundations seem like small output, but remember, we also covered our research and set the project up for success later. Foundations aren't ever shown off, but without a strong one, the Empire State Building would just be a pretty picture on a blueprint.
+# Pause: That's our foundation done!
+Congrats! We set out a plan and executed it. The foundations seem like small output, but remember, we also covered our research and set the project up for success later. A foundation can't be seen, but without a strong one, the Empire State Building would just be a pretty picture on a blueprint.
 
-Good job, now let's press on to our MVP!
+Let's press on to our MVP!
 
 # Step 7: Select an option
 We've listed out the options for the user, but we need someway to get their option. Let's make a function like `getUserNumber()` that uses our `prompt` to get a number input from the user:
@@ -309,17 +309,17 @@ const option = getUserNumber();
 // options would be 2 for example, not "2"
 ```
 
-But our `prompt` always returns strings? How are we supposed to convert "2" to `2`? An easy way to do that is to use [the `Number()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number). Give it a try (and don't forget about `trim()` to format input)!
+Wait, but our `prompt` always returns strings. How are we supposed to convert "2" to `2`? An easy way to do that is to use [the `Number()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number). Give it a try (and don't forget about `trim()` to format input)!
 
 ## Validation
 Obviously, the user could type nonsense instead of a number. One of the benefits of wrapping this "simple" logic into a function is that we could handle errors right her. That way, no logic has to change beyond this function, but our entire app is safer. For example, we could automatically set any non-number input to equal 0, and elegantly handle that.
 
-HOWEVER! Don't do it now! An MVP is *mostly* about the happy path, and we specifically said validation and error handling was a stretch goal, let's not get distracted from out plan and keep moving forward.
+HOWEVER! Don't do it now! An MVP is *mostly* about the happy path (e.g. assume the user makes no/few mistakes), and we specifically said validation and error handling was a stretch goal. Let's not get distracted from out plan and keep moving.
 
 # Step 8: "Route" to an "event handler"
-You may hear that a program is "event driven." That means it's really easy to follow a pattern of "When a user does X action, trigger Y function." Very often the function that "handles" the event, so it's called something like `handleSubmit()` or `handleClick()`. Let's use that convention and write a stub (meaning valid syntax but empty) function called `handleGuessingGame()`.
+You may hear that a program is "event driven." That means it follows a pattern of "When a user does X action, trigger Y function." The functions that "handle" the events are usually called something like `handleSubmit()` or `handleClick()`. Let's use that convention and write a stub function (meaning valid syntax but empty) called `handleGuessingGame()`. Note, this isn't _exactly_ events becaue the functions aren't automatically triggered, but it's close enough! You'll learn real events and how to handle them soon. 
 
-Now, the "event" is selecting an option, but how do we know what to do based on their selection? Simple, let's "route" them to their destination based on their choice. We have a couple options.
+Now, the "event" is selecting an option, but how do we know what to do based on their selection? Simple, let's "route" them to their proper function based on their choice. We have a couple of ways of doing this:
 
 ```js
 // Traditional if/else
@@ -357,15 +357,15 @@ if (option === 1) return handleGuessingGame(name);
 // if (option === 3) return handleCheers(name);
 sayGoodbye()
 ```
-There are pros and cons to each approach. For example, the guard clauses look the sleekest, however the catch is that now each one exits the `main` function. Meaning, we have to copy our `sayGoodbye()` into each of them. Not that none of them have a "else" case. That's because our function is just finished if they don't pick a number. If our program were more sophisticated, that may not be the case.
+There are pros and cons to each approach. For example, the guard clauses look the sleekest, however the catch is that now each one exits the `main` function. Meaning, we have to copy our `sayGoodbye()` into each of them. Note that none of them have a "else" case. That's because our function is just finished if they don't pick a number. If our program were more sophisticated, that may not be the case.
 
-The point is, there are trade offs when picking code patterns. Some people vehemently dislike single line `if` guard clauses for the extra complexity they can sometimes hide. Whatever approach you take, make it with care and data to back it up.
+There are always trade offs when picking code patterns. Some people vehemently dislike single line `if` guard clauses for the extra complexity they can sometimes hide. Whatever approach you take, make it with care and the confidence to back it up.
 
 > My one line `ifs` will be my downfall one day, but I'll be damned if I don't look good on the way down.
 > <br />--mike
 
 # Step 9: Pick a random number
-With routing taken care of, let's move on to the question of how to deal with random. It seems like quite a few of our other functions could benefit from selecting random numbers in a range, so lets make a helper function `getRandomIntInRange()`. It should take in inclusive min, and an exclusive max (you'll see why later on) and return an integer:
+With routing taken care of, let's move on to the question of how to deal with randomness. It seems like quite a few of our other functions could benefit from selecting random numbers in a range, so lets make a helper function `getRandomIntInRange()`. It should take in inclusive min, and an exclusive max (you'll see why later on) and return an integer:
 
 ```js
 getRandomIntInRange(0,11)
@@ -374,6 +374,7 @@ getRandomIntInRange(0,11)
 
 # Step 10: Compare answers and output
 Let's turn back to our stubbed `handleGuessingGame()` function. It needs to do a few things:
+
 1. Get the users guess and convert it to a number
 2. create a random number as the right answer
 3. compare those two numbers
@@ -387,13 +388,13 @@ You might hear the term "pure function." One of the most important pieces of a p
 
 So, our `getRandomIntInRange()` is a helper function, but it's not pure. We could call it ten times with the same arguments, but get wildly different outputs. However, a `checkAnswer()` would have exactly the same outputs no matter how many times you called it with the same arguments. If you send in matching numbers, it will always congratulate, and if they don't match, it will always say better luck.
 
-If you're interested in pure functions, check out this article on Functional [Programming in JS](https://www.freecodecamp.org/news/functional-programming-in-javascript/)
+If you're interested in pure functions, check out this article on [Functional Programming in JS](https://www.freecodecamp.org/news/functional-programming-in-javascript/).
 
 # Pause: MVP Done!
-You did it again! Absolutely *crushing* these checkpoints. See how quickly we can move with good planning and foundations?
+You did it again! Absolutely *crushing* these checkpoints. See how quickly we can move with good planning and foundations? Checkpoints/steps should be large enough for a logical goal, but small enough so that you can maintain momentum.
 
 # Stretch Goals: More options
-Well, you hit the main functionality, and now you can just add more handlers for more routing options. Here's the starter code for some wisdom and cheers (since we haven't technically gone over `arrays` yet). Look how it uses the length as the end of the random number range.
+You hit the main functionality, and now you can just add more handlers for more "routing" options. Here's the starter code for some wisdom and cheers (since we haven't technically gone over `arrays` yet). Look how it uses the length as the end of the random number range. You'll see why this length is an exclusive max next week!
 
 ```js
 const wordsOfWisdom = [
@@ -402,7 +403,7 @@ const wordsOfWisdom = [
   'Eating breakfast has statistical benefits to brain power',
   "The best laid plans often fail, but plans that don't exist can never succeed",
   'Time management and communication are the two most important skills in the workplace',
-  'Try to listen to others more than you speak',
+  'Try to listen more than you speak',
 ]
 
 const cheers = [
@@ -423,9 +424,9 @@ const getCheer = () => cheers[getRandomIntInRange(0, cheers.length)];
 However, you could also focus on adding validation to our *existing* features as well. It's up to you! But whatever you choose, move step by step.
 
 ## File Structure
-By now, you have quite a few functions in your `index.js` It may be worth it to think about splitting up your files. In general, your projects *main* `index.js` doesn't export things. It just imports things and runs your app. So you could break out all your little helper functions into a `utils.js` (short for "utilities"), or perhaps knock out all the handlers into a `handlers.js`. Maybe each handler gets its own file, and then you import with a barrel file?
+By now, you have quite a few functions in your `index.js`. It may be worth it to think about splitting up your files. In general, your projects *main* `index.js` doesn't export things. It just imports things and runs your app. So you could break out all your little helper functions into a `utils.js` (short for "utilities"), or perhaps knock out all the handlers into a `handlers.js`. Maybe each handler gets its own file, and then you import with a barrel file?
 
-However you choose to organize your project, make sure you can back up your decision with a strong opinion. Don't do things unless you understand why.
+However you choose to organize your project, make sure you can back up your decision with a good reason. Don't do things unless you understand why.
 
 # Next steps: Looping
-And that's all for this project. But you may be wondering: "How would I make this all keep going?" It's kind of a bummer we essentially only get one round, and then we exit. Well, the answer is **looping!** And we'll learn about it next week. But if you're truly ready to go, why don't you learn about `while` loops. They are perfect for programs like this. they can run *until* you tell them to stop.
+And that's all for this project! But you may be wondering: "How would I make this all keep going?" It's kind of a bummer we essentially only get one round, and then we exit. Well, the answer is **looping!** And we'll learn about it next week. But if you're truly ready to go, why don't you learn about `while` loops. They are perfect for programs like this. They run *until* you tell them to stop.
