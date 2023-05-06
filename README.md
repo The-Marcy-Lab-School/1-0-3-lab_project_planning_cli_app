@@ -135,20 +135,21 @@ Ordinarily, after research and rough prototyping, we'd revisit our overall plan,
 
 # Step 1: Create a project
 Let's get things started right:
-- use the `npm init` command to create a package.json
+- use the `npm init` command to create a `package.json`
 - make a `src/` folder with an `index.js` inside
   - Probably also want a `playground.js` file, but live your life
-  - remember, your package.json (and node_modules and the package-lock.json) should always stay in the root of the project, not a folder like `src/`. By staying in the root, other users can just run `npm install` and everything will work!
-- Add an nom `start` script that's uses `node` instead of `nodemon`
+  - remember, your package.json (and `node_modules/` and the `package-lock.json`) should always stay in the root of the project, not a folder like `src/`. By staying in the root, other users can just run `npm install` and everything will work!
+- Add an npm `start` script that's uses `node` instead of `nodemon`
   - The interactive nature of `prompt-sync` doesn't seem to play nicely with `nodemon` unfortunately.
 - Finally, install the `prompt-sync` package as a dependency
+  - install dependencies with `npm i`. "Dev dependencies" are more specialized and are only required for local development (like `jest`, which only runs tests). Unless we specify something explicitly as a "dev dependency", assume we're asking you to install a regular dependency. 
 
 # Step 2: Research
 The trick to a good research phase is *knowing when to end it*. Go into your research with very specific questions that you want answered. In this case, we gave you `prompt-sync` so the question is:
 
 > How do you use this package to get user input?
 
-That's it. To get started here are the [NPM docs on prompt-sync](https://www.npmjs.com/package/prompt-sync#promptask-value-opts) and a nice bit of starter code to play with:
+That's it. To get started here are the [NPM docs on prompt-sync](https://www.npmjs.com/package/prompt-sync#promptask-value-opts) and a nice bit of starter code to play with in your `playground.js` file:
 
 ```js
 const prompt = require('prompt-sync')();
