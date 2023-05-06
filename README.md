@@ -73,7 +73,7 @@ In this case, these are the stories:
 # Choosing the foundations, MVP, and stretch features
 Once you have the stories, you have to break them up by priority. What should you build first? There's basically 3 stages of a project:
 
-1. The foundations are technically done, but basically no features. (FOUNDATIONS)
+1. The basic building blocks are done, but no real features. (FOUNDATIONS)
 2. This now has just enough features to be useful. (MVP)
 3. I can add additional features one by one safely now! (STRETCH)
 
@@ -135,10 +135,11 @@ Ordinarily, after research and rough prototyping, we'd revisit our overall plan,
 
 # Step 1: Create a project
 Let's get things started right:
-- use the npm command to initialize the project
-- make a `src` folder with an `index.js` inside
+- use the `npm init` command to create a package.json
+- make a `src/` folder with an `index.js` inside
   - Probably also want a `playground.js` file, but live your life
-- Add a start script that's uses `node` instead of `nodemon`
+  - remember, your package.json (and node_modules and the package-lock.json) should always stay in the root of the project, not a folder like `src/`. By staying in the root, other users can just run `npm install` and everything will work!
+- Add an nom `start` script that's uses `node` instead of `nodemon`
   - The interactive nature of `prompt-sync` doesn't seem to play nicely with `nodemon` unfortunately.
 - Finally, install the `prompt-sync` package as a dependency
 
