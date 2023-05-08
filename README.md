@@ -152,7 +152,7 @@ The trick to a good research phase is *knowing when to end it*. Go into your res
 That's it. To get started here are the [NPM docs on prompt-sync](https://www.npmjs.com/package/prompt-sync#promptask-value-opts) and a nice bit of starter code to play with in your `playground.js` file:
 
 ```js
-const prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')({ sigint: true });
 
 const name = prompt("What's your name? ");
 const age = prompt("What's your age? ");
@@ -160,7 +160,7 @@ console.log(typeof name)
 console.log(typeof age)
 ```
 
-Read the docs but don't go crazy, look for only what you need to get started. Focus on things like functions, required arguments vs helpful arguments, and return data.
+Read the docs but don't go crazy, look for only what you need to get started. Focus on things like functions, required arguments vs helpful arguments, and return data. By the way that `sigint` bit is just to allow us to do ctrl+c to exit out of text intput. It's not required, but it's helpful. 
 
 Once you feel confident about your answer to the primary question, move on! You can learn more as you go later. Always keep moving forward.
 
