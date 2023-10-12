@@ -135,12 +135,27 @@ Ordinarily, after research and rough prototyping, we'd revisit our overall plan,
 
 # Step 1: Create a project
 Let's get things started right:
-- use the `npm init` command to create a `package.json`
-- make a `src/` folder with an `index.js` inside
+- Create a new directory with `mkdir my-first-lab` or whatever you want to call it
+- Then, `cd` into it 
+- Let's initialize git, create a .gitignore and add the `node_modules` to it. You can do that all from the command line actually (don't worry if you don't know what >> does, it just appends output into a file)
+  ```bash
+  git init
+  touch .gitignore
+  echo "node_modules/" >> .gitignore 
+  ```
+- Now use the `npm init` command to create a `package.json`. You want to initialize git first because then it automatically gets picked up
+- Make a `src/` folder with an `index.js` inside
   - Probably also want a `playground.js` file, but live your life
-  - remember, your package.json (and `node_modules/` and the `package-lock.json`) should always stay in the root of the project, not a folder like `src/`. By staying in the root, other users can just run `npm install` and everything will work!
-- Add an npm `start` script that's uses `node` instead of `nodemon`
-  - The interactive nature of `prompt-sync` doesn't seem to play nicely with `nodemon` unfortunately.
+  - remember, your `package.json` (and `node_modules/` and the `package-lock.json`) should always stay in the root of the project, not a folder like `src/`. By staying in the root, other users can just run `npm install` and everything will work! 
+  - Like you've seen in your HW, `src/` is just a way to keep our main app files focused and not pollute the top level of our project. Some apps have hundreds of directories and files, you wouldn't want them all sitting in the open, what a mess that would be!
+- Add an npm `start` script that's `node src/index.js`, so your `package.json` should have a script section that looks something like this: 
+  ```json
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  ```
+  - Remember, with JSON, you can't have a trailing comma, make sure the last property in an object does *not* have a comma.
+  - Why `node` and not `nodemon`? The interactive nature of `prompt-sync` doesn't seem to play nicely with `nodemon` unfortunately.
 - Finally, install the `prompt-sync` package as a dependency
   - install dependencies with `npm i`. "Dev dependencies" are more specialized and are only required for local development (like `jest`, which only runs tests). Unless we specify something explicitly as a "dev dependency", assume we're asking you to install a regular dependency. 
 
@@ -162,7 +177,7 @@ console.log(typeof age)
 
 Read the docs but don't go crazy, look for only what you need to get started. Focus on things like functions, required arguments vs helpful arguments, and return data. By the way that `sigint` bit is just to allow us to do ctrl+c to exit out of text intput. It's not required, but it's helpful. 
 
-Once you feel confident about your answer to the primary question, move on! You can learn more as you go later. Always keep moving forward.
+Once you feel confident about your answer to the primary question, move on! You can learn more as you go later. *Always keep moving forward.*
 
 # Step 3: File setup
 How do we structure a JS File? Lots of ways of course, but for now let's keep it simple and use this setup:
@@ -364,7 +379,7 @@ There are pros and cons to each approach. For example, the guard clauses look th
 There are always trade offs when picking code patterns. Some people vehemently dislike single line `if` guard clauses for the extra complexity they can sometimes hide. Whatever approach you take, make it with care and the confidence to back it up.
 
 > My one line `ifs` will be my downfall one day, but I'll be damned if I don't look good on the way down.
-> <br />--mike
+> <br />--Mike
 
 # Step 9: Pick a random number
 With routing taken care of, let's move on to the question of how to deal with randomness. It seems like quite a few of our other functions could benefit from selecting random numbers in a range, so lets make a helper function `getRandomIntInRange()`. It should take in inclusive min, and an exclusive max (you'll see why later on) and return an integer:
